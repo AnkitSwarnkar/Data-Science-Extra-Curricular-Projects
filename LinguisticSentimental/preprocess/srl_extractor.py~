@@ -1,0 +1,6 @@
+import pandas as pd
+import numpy as np
+from practnlptools.tools import Annotator
+
+data_test = pd.read_excel("../data/trainStance.xlsx")
+print(data_test.head)

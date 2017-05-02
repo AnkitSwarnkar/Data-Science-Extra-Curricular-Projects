@@ -20,10 +20,10 @@ class NounExtract:
         pos_list=[]
         train_test=test_train
         for line in tweets:
-            line_clean=' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)"," ",line).split())
+            line_clean=' '.join(re.sub('[^A-Za-z]+',' ',line).split())
         doc = self.nlp(line_clean)
         for word in doc:
-            if word.pos_=="NOUN":
+            if word.pos_=="NOUN" or word.pos_=="ADJ" or word.pos_=="VERB" :
                 pos_list.append(word.text)
 
         #print(pos_list)
